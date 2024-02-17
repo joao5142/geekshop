@@ -17,6 +17,7 @@ export default mergeConfig(
           inline: ['vuetify'],
         },
       },
+      setupFiles: ['./vitest.setup.ts'],
     },
   })
 )

@@ -76,5 +76,10 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "type": "module"
+  "type": "module",
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
 }
