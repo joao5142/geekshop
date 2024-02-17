@@ -6,12 +6,9 @@ module.exports = {
     extraFileExtensions: ['.vue'],
   },
   ignorePatterns: ['**/stories/*', 'build', 'dist', 'node_modules'],
-  plugins: ['vue'],
-  extends: [
-    'plugin:@typescript-eslint/eslint-plugin',
-    'plugin:vue/vue3-recommended',
-    'plugin:prettier/recommended',
-  ],
+  plugins: ['vue', '@typescript-eslint/eslint-plugin'],
+
+  extends: ['plugin:vue/vue3-recommended', 'plugin:prettier/recommended'],
   overrides: [
     {
       files: ['*.vue'],

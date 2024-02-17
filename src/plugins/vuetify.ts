@@ -49,7 +49,25 @@ export default createVuetify({
     },
   },
 
-  defaults: {},
+  defaults: {
+    VTextField: {
+      color: 'primary',
+      rounded: 8,
+      outlined: true,
+      variant: 'outlined',
+      height: 60,
+    },
+    VSelect: {
+      color: 'primary',
+      rounded: 8,
+      outlined: true,
+      variant: 'outlined',
+      height: 60,
+    },
+    VRadio: {
+      color: 'primary',
+    },
+  },
 })
 
 export type FontSizesTypes = keyof typeof themeInUse.fontSizes

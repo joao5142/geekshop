@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Kratos",
+    "description": "God of War 4",
+    "price": "R$ 319,92",
+    "image_url": "https://www.toyshow.com.br/colecionaveis/action-figures",
+    "quantity": "1"
+  },
+  {
+    "name": "Coringa (Joker)",
+    "description": "Batman: O Cavaleiro Das Trevas",
+    "price": "R$ 349,95",
+    "image_url": "https://www.toyshow.com.br/colecionaveis/action-figures",
+    "quantity": "1"
+  },
+  {
+    "name": "Chucky",
+    "description": "Brinquedo Assassino (Child's Play)",
+    "price": "R$ 399,92",
+    "image_url": "https://www.toyshow.com.br/colecionaveis/action-figures",
+    "quantity": "1"
+  },
+  {
+    "name": "Wolverine (Logan)",
+    "description": "X-men Vingadores Avengers Marvel",
+    "price": "R$ 559,92",
+    "image_url": "https://www.toyshow.com.br/colecionaveis/action-figures",
+    "quantity": "1"
+  },
+  {
+    "name": "Xerife Cowboy Woody",
+    "description": "Toy Story",
+    "price": "R$ 229,95",
+    "image_url": "https://www.toyshow.com.br/colecionaveis/action-figures",
+    "quantity": "1"
+  },
+  {
+    "name": "E.T. (O Extraterrestre)",
+    "description": "Camisa Xadrez Azul 40 Anos",
+    "price": "R$ 420,00",
+    "image_url": "https://www.toyshow.com.br/colecionaveis/action-figures",
+    "quantity": "1"
+  },
+  {
+    "name": "Yoshi",
+    "description": "Super Mario Bros World (24cm)",
+    "price": "R$ 127,92",
+    "image_url": "https://www.toyshow.com.br/colecionaveis/action-figures",
+    "quantity": "1"
+  },
+  {
+    "name": "Darth Vader (Anakin Skywalker)",
+    "description": "Star Wars",
+    "price": "R$ 449,95",
+    "image_url": "https://www.toyshow.com.br/colecionaveis/action-figures",
+    "quantity": "1"
+  },
+  {
+    "name": "Rafael",
+    "description": "Tartarugas Ninja (Teenage Mutant Ninja Turtles 1990)",
+    "price": "R$ 319,92",
+    "image_url": "https://www.toyshow.com.br/colecionaveis/action-figures",
+    "quantity": "1"
+  },
+  {
+    "name": "Monkey D. Luffy",
+    "description": "One Piece (Anime Mangá)",
+    "price": "R$ 279,92",
+    "image_url": "https://www.toyshow.com.br/colecionaveis/action-figures",
+    "quantity": "1"
+  }
+]

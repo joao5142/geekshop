@@ -1,38 +1,45 @@
-import { AppError } from "@/utils/erros/AppError";
-import axios, { AxiosRequestConfig, AxiosRequestHeaders,  } from "axios";
- 
+import { AppError } from '@/utils/erros/AppError'
+import axios, { AxiosRequestConfig, AxiosRequestHeaders } from 'axios'
+// import { HttpsProxyAgent } from 'https-proxy-agent'
 interface AdaptAxiosRequestConfig extends AxiosRequestConfig {
   headers: AxiosRequestHeaders
 }
 
+export const BASE_URL_API = 'https://api.deepspacestore.com'
+
+// const agent = new HttpsProxyAgent('https://localhost:3001')
+
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:8000/api",
+  baseURL: BASE_URL_API,
   timeout: 10000,
-});
+  // httpsAgent: agent,
+})
 
 const requestHandler = async (requestConfig: AdaptAxiosRequestConfig) => {
-   try {
-    let token = ""
+  try {
+    const token = ''
 
     if (token) {
-      requestConfig.headers.Authorization = "bearer " + token;
+      requestConfig.headers.Authorization = 'bearer ' + token
     }
-  } catch (e) {}
+  } catch (e) {
+    console.error(e)
+  }
 
-  return requestConfig;
-};
+  return requestConfig
+}
 
-axiosInstance.interceptors.request.use((requestConfig) => requestHandler(requestConfig));
+axiosInstance.interceptors.request.use((requestConfig) => requestHandler(requestConfig))
 
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && error.response.data) {
-      return Promise.reject(new AppError(error.response.data.message));
+      return Promise.reject(new AppError(error.response.data.message))
     } else {
-      return Promise.reject(error);
+      return Promise.reject(error)
     }
   }
-);
+)
 
-export default axiosInstance;
+export default axiosInstance

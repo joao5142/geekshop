@@ -1,7 +1,7 @@
 export default {
   colors: {
     light: {
-      primary: '#3150F3',
+      primary: '#2FBD6A',
 
       'text-50': '#F2F7FA',
       'text-100': '#EDF2F7',
@@ -149,7 +149,7 @@ export default {
       'pink-900': '#521B41',
     },
     dark: {
-      primary: '#318AF3',
+      primary: '#2FBD6A',
       secondary: '#34455B',
 
       'text-50': '#4B4B4B',
@@ -315,7 +315,7 @@ export default {
     bold: 700,
   },
   fontFamily: {
-    primary: 'Montserrat',
-    secondary: 'Montserrat',
+    primary: 'Inter',
+    secondary: 'Inter',
   },
 } as const

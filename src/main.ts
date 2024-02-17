@@ -1,8 +1,11 @@
+import '@/styles/main.scss'
+
 import { createApp } from 'vue'
 import App from './App.vue'
 import vuetify from '@/plugins/vuetify'
 import router from '@/routes'
 import vuex from '@/store/index'
+
 import { worker } from './mocks/broswer'
 
 async function prepareApp() {

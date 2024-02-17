@@ -1,15 +1,6 @@
-@import "_reset.scss";
-
-@import "_overrides.scss";
-
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
-
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  outline: 0;
-}
+@import '_reset.scss';
+@import '_theme.scss';
+@import '_overrides.scss';
 
 body,
 html {

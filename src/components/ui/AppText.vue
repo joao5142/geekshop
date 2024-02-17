@@ -4,6 +4,7 @@
 
 <script setup lang="ts">
 import { FontWeightTypes, FontSizesTypes, ColorTypes } from '@/plugins/vuetify'
+import { computed } from 'vue'
 
 export type TextTagTypes = 'p' | 'span' | 'strong' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h5'
 
@@ -82,8 +83,4 @@ const computedClasses = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-.button--disabled > .text {
-  color: rgb(var(--v-theme-text-500)) !important;
-}
-</style>
+<style lang="scss" scoped></style>
