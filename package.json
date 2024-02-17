@@ -65,5 +65,10 @@
       "npm run lint:fix"
     ]
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "type": "module"
 }
