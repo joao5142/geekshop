@@ -1,3 +1,8 @@
-import { createPinia } from 'pinia';
+import { createStore } from 'vuex'
+import cart from './modules/cartStore'
 
-export const pinia = createPinia();
+export default createStore({
+  modules: {
+    cart,
+  },
+})

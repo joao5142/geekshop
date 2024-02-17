@@ -8,10 +8,9 @@ module.exports = {
   ignorePatterns: ['**/stories/*', 'build', 'dist', 'node_modules'],
   plugins: ['vue'],
   extends: [
-    '@nuxtjs/eslint-config-typescript',
+    'plugin:@typescript-eslint/eslint-plugin',
     'plugin:vue/vue3-recommended',
     'plugin:prettier/recommended',
-    'plugin:storybook/recommended',
   ],
   overrides: [
     {
@@ -69,7 +68,7 @@ module.exports = {
     {
       files: ['*.js', '*.ts', '*.tsx', '*.mts', '*.cts', '*.vue'],
       rules: {
-        '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/eslint-plugin/no-unused-vars': 'off',
 
         'no-console': 'off',
         'import/no-duplicates': 'off',
