@@ -1,0 +1,19 @@
+.v-application ,* ,#app {
+    font-family: 'Montserrat', sans-serif !important;
+}
+.v-application {
+    font-family: 'Montserrat', sans-serif !important;
+     .title { // To pin point specific classes of some components
+        font-family: 'Montserrat', sans-serif !important;
+     }
+}
+
+.v-application .v-field__field input[type='text']{
+    padding:18px; 
+}
+ 
+.v-application .v-input__control .v-field.v-theme--lightTheme{
+    border-radius: 8px !important;
+}
+
+ 
