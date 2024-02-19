@@ -83,4 +83,8 @@ const computedClasses = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.button--disabled > .text {
+  color: rgb(var(--v-theme-text-500)) !important;
+}
+</style>

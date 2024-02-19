@@ -46,14 +46,6 @@
             <v-list-item-title>Meu Perfil</v-list-item-title>
           </v-list-item>
 
-          <v-list-item to="/app/assinatura">
-            <template #prepend>
-              <v-icon :icon="PhCreditCard" size="22" />
-            </template>
-
-            <v-list-item-title>Assinatura</v-list-item-title>
-          </v-list-item>
-
           <v-divider class="my-2" />
 
           <v-list-item @click="$emit('logout')">

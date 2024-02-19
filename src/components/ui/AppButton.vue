@@ -30,7 +30,7 @@ interface IProps {
 const props = withDefaults(defineProps<IProps>(), {
   size: 'md',
   background: 'primary',
-  color: 'white',
+  color: 'text-700',
   width: undefined,
   height: undefined,
   borderColor: undefined,
@@ -136,7 +136,7 @@ const computedHeightUnit = computed(() => {
 
     color: rgb(var(--v-theme-text-500)) !important;
 
-    > * {
+    * {
       color: rgb(var(--v-theme-text-500)) !important;
     }
   }

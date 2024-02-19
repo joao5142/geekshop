@@ -59,3 +59,14 @@ body {
   border-radius: variables.$border-radius !important;
   box-shadow: 10px 10px rgba(0, 0, 0, 0.5) !important;
 }
+
+//input details
+.v-input__details {
+  padding-left: 0px !important;
+}
+.v-messages {
+  opacity: 0.8 !important;
+}
+.hint--orange .v-input__details {
+  color: rgb(var(--v-theme-red-300)) !important;
+}

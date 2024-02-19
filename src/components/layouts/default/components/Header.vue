@@ -1,9 +1,15 @@
 <template>
   <header class="d-flex align-center justify-space-between">
-    <div><v-img @click="handleNavigateToHome" :src="Logo" class="logo"></v-img></div>
+    <div>
+      <app-text as="strong" size="2xl" class="cursor-pointer" @click="handleNavigateToHome">
+        GeekShop
+      </app-text>
+    </div>
     <div class="d-flex">
-      <div class="me-5 d-flex align-center cursor-pointer">
-        <app-text as="span" color="text-800" class="me-3" weight="medium">2 Items</app-text>
+      <div class="me-5 d-flex align-center cursor-pointer" @click="handleNavigateToCheckout">
+        <app-text as="span" color="text-800" class="me-3" weight="medium">
+          {{ itemsQuantity }} Items
+        </app-text>
         <ph-shopping-cart-simple :size="25" color="black" />
       </div>
 
@@ -17,14 +23,25 @@
 <script setup lang="ts">
 import MenuProfile from './MenuProfile.vue'
 import { PhShoppingCartSimple } from '@phosphor-icons/vue'
-import Logo from '@/assets/logo.png'
 import AppText from '@/components/ui/AppText.vue'
+
+import { useStore } from 'vuex'
+
+import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
+const store = useStore()
+
+const itemsQuantity = computed(() => {
+  return store?.state.cart?.items?.length ?? 0
+})
 
 function handleNavigateToHome() {
   router.push({ path: '/app/home' })
+}
+function handleNavigateToCheckout() {
+  router.push({ path: '/app/checkout' })
 }
 </script>
 

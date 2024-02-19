@@ -1,22 +1,48 @@
-import httpClient from '@/lib/api'
-import { BASE_URL_API } from '@/lib/api'
+import { ProductService } from '@/services/product'
+import { ActionContext } from 'vuex'
 
-const state = () => ({
+export interface Product {
+  id: number
+  title: string
+  price: number
+  inventory: number
+}
+
+interface ProductState {
+  list: Product[] | []
+}
+
+const state: ProductState = {
   list: [],
-})
+}
 
 const getters = {}
 
 const actions = {
-  async getAllProducts({ commit }) {
-    const products = await httpClient.get(BASE_URL_API + '/products')
-    commit('setProducts', products.data)
+  async getAllProducts({ commit }: ActionContext<ProductState, ProductState>) {
+    const data = await ProductService.getAll()
+    commit('setProducts', data)
   },
 }
 
 const mutations = {
-  setProducts(state, products) {
+  setProducts(state: ProductState, products: Product[]) {
     state.list = products
+  },
+  incrementProductInventory(state: ProductState, { productId }: { productId: number }) {
+    const product = state.list.find((product) => product.id === productId)
+
+    if (product) {
+      product.inventory++
+    }
+  },
+
+  decrementProductInventory(state: ProductState, { productId }: { productId: number }) {
+    const product = state.list.find((product) => product.id === productId)
+
+    if (product && product.inventory >= 1) {
+      product.inventory--
+    }
   },
 }
 

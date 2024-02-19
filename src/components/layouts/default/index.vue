@@ -1,18 +1,20 @@
 <template>
   <v-layout>
     <v-app-bar elevation="0" class="header">
-      <v-container> <HeaderComponent /></v-container>
+      <v-container><header-component /></v-container>
     </v-app-bar>
     <v-main class="mt-15">
       <v-container>
         <router-view></router-view>
       </v-container>
     </v-main>
+    <loading-component />
   </v-layout>
 </template>
 
 <script setup lang="ts">
 import HeaderComponent from './components/Header.vue'
+import LoadingComponent from './components/Loading.vue'
 </script>
 
 <style scoped lang="scss">

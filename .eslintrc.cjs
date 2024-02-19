@@ -6,9 +6,13 @@ module.exports = {
     extraFileExtensions: ['.vue'],
   },
   ignorePatterns: ['**/stories/*', 'build', 'dist', 'node_modules'],
-  plugins: ['vue', '@typescript-eslint/eslint-plugin'],
+  plugins: ['vue'],
 
-  extends: ['plugin:vue/vue3-recommended', 'plugin:prettier/recommended'],
+  extends: [
+    'plugin:vue/vue3-recommended',
+    'plugin:prettier/recommended',
+    '@typescript-eslint/eslint-plugin',
+  ],
   overrides: [
     {
       files: ['*.vue'],
@@ -66,7 +70,7 @@ module.exports = {
       files: ['*.js', '*.ts', '*.tsx', '*.mts', '*.cts', '*.vue'],
       rules: {
         '@typescript-eslint/eslint-plugin/no-unused-vars': 'off',
-
+        '@typescript-eslint/no-explicit-any': 'off',
         'no-console': 'off',
         'import/no-duplicates': 'off',
         'no-useless-catch': 'off',
