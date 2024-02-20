@@ -1,21 +1,21 @@
 [
   {
     "id": 1,
-    "name": "Kratos",
-    "description": "God of War 4",
+    "name": "Kaonashi Espririto",
+    "description": "Moletom Canguru Unissex Anime",
     "price": "319.92",
-    "image": "https://m.media-amazon.com/images/I/61-cfsAAEyL._AC_SX679_.jpg",
+    "image": "https://m.media-amazon.com/images/I/51RkE9kFcfL._AC_SX569_.jpg",
     "inventory": "1",
-    "about": ["Jogos", "Kratos", "God of war"]
+    "about": ["Moletom Flanelado", "Estampa de Alta Durabilidade", "Quentinho"]
   },
   {
     "id": 2,
-    "name": "Batman",
-    "description": "Batman: O Cavaleiro Das Trevas",
+    "name": "HERMIONE",
+    "description": "FIGURE HARRY POTTER ",
     "price": "349.95",
-    "image": "https://m.media-amazon.com/images/I/51n1d1ORtCL._AC_SX679_.jpg",
+    "image": "https://m.media-amazon.com/images/I/51VjZPg815L._AC_SX679_.jpg",
     "inventory": "4",
-    "about": ["Articulado", "Acompanha um cartão para o colecionador", "Com acessórios específicos"]
+    "about": ["Série: Harry Potter", "Personagem: Hermione Granger", "Com acessórios específicos"]
   },
   {
     "id": 3,
@@ -31,64 +31,64 @@
   },
   {
     "id": 4,
-    "name": "Wolverine (Logan)",
-    "description": "X-men Vingadores Avengers Marvel",
+    "name": "Itachi",
+    "description": "Figure Naruto Itachi Gk Genjutsu Linda Peça 26cm",
     "price": "559.92",
-    "image": "https://m.media-amazon.com/images/I/518IegksMGL.__AC_SX300_SY300_QL70_ML2_.jpg",
+    "image": "https://m.media-amazon.com/images/I/61j4pE8WtGL._AC_SY879_.jpg",
     "inventory": "1",
-    "about": []
+    "about": ["Linda Peça Com Itachi Mandando Seu Poderoso Genjutsu", "Escala de 26CM"]
   },
   {
     "id": 5,
-    "name": "Xerife Cowboy Woody",
-    "description": "Toy Story",
+    "name": "Majin Buu",
+    "description": "Animation: Dragon Ball Z - Majin Buu",
     "price": "229.95",
-    "image": "https://m.media-amazon.com/images/I/81jN7ThReSL.__AC_SX300_SY300_QL70_ML2_.jpg",
+    "image": "https://m.media-amazon.com/images/I/81MxNqA0qTL._AC_SX679_.jpg",
     "inventory": "10",
-    "about": []
+    "about": ["Anime", "Funko"]
   },
   {
     "id": 6,
-    "name": "E.T. (O Extraterrestre)",
-    "description": "Camisa Xadrez Azul 40 Anos",
+    "name": "THE LEGEND OF ZELDA",
+    "description": "FIGURE THE LEGEND OF ZELDA: BREATH OF THE WILD",
     "price": "420.00",
-    "image": "https://m.media-amazon.com/images/I/71m0Iq1fubL.__AC_SX300_SY300_QL70_ML2_.jpg",
-    "inventory": "1",
-    "about": []
+    "image": "https://m.media-amazon.com/images/I/61cJPzdn3vL._AC_SX679_.jpg",
+    "inventory": "7",
+    "about": ["Fabricante: First4Figure", "THE Legend of Zelda Breath of The Wind"]
   },
   {
     "id": 7,
     "name": "Yoshi",
     "description": "Super Mario Bros World (24cm)",
     "price": "127.92",
-    "image": "https://m.media-amazon.com/images/I/61DqpHq4ZPL.__AC_SX300_SY300_QL70_ML2_.jpg",
+    "image": "https://m.media-amazon.com/images/I/61KTVKs8WML._AC_SX679_.jpg",
     "inventory": "8",
-    "about": []
+    "about": ["Super Mario", "Todos direitos reservados pela nitendo(não me processa)"]
   },
   {
     "id": 8,
-    "name": "Darth Vader (Anakin Skywalker)",
-    "description": "Star Wars",
+    "name": "Zoro",
+    "description": "Pop One Piece Zoro Vinyl Figure",
     "price": "449.95",
-    "image": "https://m.media-amazon.com/images/I/61canjkdl4L.__AC_SX300_SY300_QL70_ML2_.jpg",
+    "image": "https://m.media-amazon.com/images/I/81ZaQfb++GL._AC_SX679_.jpg",
     "inventory": "3",
-    "about": []
+    "about": ["Anime", "One Piece", "Material de alta qualidade"]
   },
   {
     "id": 9,
-    "name": "Rafael",
-    "description": "Tartarugas Ninja (Teenage Mutant Ninja Turtles 1990)",
+    "name": "Sakura",
+    "description": "FIGURE NARUTO SHIPPUDEN - SAKURA HARUNO",
     "price": "319.92",
-    "image": "https://m.media-amazon.com/images/I/51dObwVDf3L.__AC_SX300_SY300_QL70_ML2_.jpg",
+    "image": "https://m.media-amazon.com/images/I/71bSqkP6lFL._AC_SX679_.jpg",
     "inventory": "2",
-    "about": []
+    "about": ["Fabricante: MegaHouse", "Série: Naruto Shippuden", "Material: PVC"]
   },
   {
     "id": 10,
-    "name": "Monkey D. Luffy",
-    "description": "One Piece (Anime Mangá)",
+    "name": "Luffy Gear Two",
+    "description": "Funko Boneco Pop de vinil Pop de uma peça de animação Luffy Gear Two",
     "price": "279.92",
-    "image": "https://m.media-amazon.com/images/I/61X3e5vl0uL.__AC_SX300_SY300_QL70_ML2_.jpg",
+    "image": "https://m.media-amazon.com/images/I/81ND5D0MrhL._AC_SX679_.jpg",
     "inventory": "7"
   }
 ]
