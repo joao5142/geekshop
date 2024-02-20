@@ -3,14 +3,12 @@ describe('Home Page', () => {
     cy.visit('/app/home')
   })
 
-  it('should add product to cart when click increment btn on card', () => {
+  it('should  show cupons drawer and hide', () => {
     cy.visit('/app/home')
 
-    cy.get('[data-test="product-item1"]').find('[data-test="product-add-btn"]').click()
-  })
-  it('should  show cupons drawer', () => {
-    cy.visit('/app/home')
-
-    cy.get('[data-test="product-item1"]').find('[data-test="product-add-btn"]').click()
+    cy.get('[data-test="drawer-image"]').click()
+    cy.get('[data-test="cupons-drawer"').should('exist')
+    cy.get('body').click()
+    cy.get('[data-test="cupons-drawer"').should('be.hidden')
   })
 })

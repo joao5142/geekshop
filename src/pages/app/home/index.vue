@@ -1,7 +1,7 @@
 <template>
   <div>
     <section>
-      <cupom-component class="my-6 mb-15" />
+      <cupom-component class="my-6 mb-15" data-test="drawer-image" />
     </section>
 
     <section>

@@ -6,6 +6,7 @@
       <v-navigation-drawer
         ref="targetEl"
         v-model="isNavigationOpen"
+        data-test="cupons-drawer"
         temporary
         :mobile-breakpoint="0"
         location="left"
