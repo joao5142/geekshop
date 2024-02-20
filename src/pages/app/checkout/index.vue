@@ -19,6 +19,15 @@
                         {{ product.name }}
                       </app-text>
                       <app-text as="span" size="md">{{ product.description }}</app-text>
+
+                      <app-text
+                        as="span"
+                        size="md"
+                        weight="semibold"
+                        class="text-start d-block mt-3"
+                      >
+                        {{ formatNumber.format(product.price * product.quantity) }}
+                      </app-text>
                     </div>
                     <app-text as="strong" size="md">{{ product.quantity }}x</app-text>
                   </div>
@@ -29,10 +38,24 @@
           </div>
         </div>
         <div>
-          <app-text as="span" size="md" class="text-end d-block mt-7">
-            <strong>Total :</strong>
-            {{ formatNumber.format(totalPrice) }}
-          </app-text>
+          <div class="d-flex align-center justify-space-between mt-2">
+            <strong>Subtotal:</strong>
+            <app-text as="span" size="md" class="text-end d-block" weight="medium">
+              {{ formatNumber.format(subtotalPrice) }}
+            </app-text>
+          </div>
+          <div class="d-flex align-center justify-space-between mt-2">
+            <app-text as="strong" color="red-500">Desconto:</app-text>
+            <app-text color="red-500" as="span" size="md" class="text-end d-block" weight="medium">
+              {{ formatNumber.format(totalPrice - subtotalPrice) }}
+            </app-text>
+          </div>
+          <div class="d-flex justify-space-between align-center mt-7">
+            <app-text as="span" size="md" class="d-block">
+              <strong>Total :</strong>
+            </app-text>
+            <span>{{ formatNumber.format(totalPrice) }}</span>
+          </div>
         </div>
       </v-col>
     </v-row>
@@ -68,10 +91,14 @@ const router = useRouter()
 const cartItems = computed(() => {
   return store?.state?.cart?.items ?? []
 })
+
 const totalPrice = computed(() => {
   return store?.getters?.['cart/cartTotalPrice'] ?? 0
 })
 
+const subtotalPrice = computed(() => {
+  return store?.getters?.['cart/cartSubtotalPrice'] ?? 0
+})
 function handleNavigateToHome() {
   router.push({
     path: '/app/home',
@@ -88,6 +115,12 @@ function handleNavigateToHome() {
 
 .order {
   max-height: 550px;
+
+  &__cupom {
+    object-fit: contain;
+    aspect-ratio: 1/1;
+    width: 30px;
+  }
 
   &__container-products {
     max-height: 400px;

@@ -1,23 +1,23 @@
-import { ActionContext } from 'vuex'
+import { ActionContext, ActionTree, GetterTree, MutationTree } from 'vuex'
 
-interface LoadingState {
+interface ILoadingState {
   isLoading: boolean
 }
 
-const state: LoadingState = {
+const state: ILoadingState = {
   isLoading: false,
 }
 
-const getters = {}
+const getters: GetterTree<ILoadingState, ILoadingState> = {}
 
-const actions = {
-  async setIsLoading({ commit }: ActionContext<LoadingState, LoadingState>, loading: boolean) {
+const actions: ActionTree<ILoadingState, ILoadingState> = {
+  async setIsLoading({ commit }: ActionContext<ILoadingState, ILoadingState>, loading: boolean) {
     commit('setIsLoading', loading)
   },
 }
 
-const mutations = {
-  setIsLoading(state: LoadingState, loading: boolean) {
+const mutations: MutationTree<ILoadingState> = {
+  setIsLoading(state: ILoadingState, loading: boolean) {
     state.isLoading = loading
   },
 }

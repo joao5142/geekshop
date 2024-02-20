@@ -12,4 +12,5 @@ const store = useStore()
 
 store.dispatch('products/getAllProducts')
 store.dispatch('products/getAllOffers')
+store.dispatch('cupons/getAllCupons')
 </script>

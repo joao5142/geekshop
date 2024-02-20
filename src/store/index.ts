@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 import cart from './modules/cartStore'
 import products from './modules/productsStore'
+import cupons from './modules/cuponsStore'
 import loading from './modules/loadingStore'
 
 export default createStore({
@@ -8,5 +9,6 @@ export default createStore({
     cart,
     products,
     loading,
+    cupons,
   },
 })

@@ -1,3 +1,4 @@
+import { ICupom } from './cupons'
 import { IProduct } from './products'
 
 export type PaymentTypes = 'CREDIT' | 'BILLET' | 'PIX'
@@ -25,8 +26,8 @@ export interface ICartItem extends IProduct {
 }
 
 export interface IPaymentData {
-  type: PaymentTypes
-  card: ICardData
+  type: PaymentTypes | null
+  card?: ICardData | null
 }
 export interface IOrderData {
   orderId: string | number | null
@@ -34,7 +35,9 @@ export interface IOrderData {
   address: IAddressData
   payment: IPaymentData
   products: ICartItem[] | []
+  cupons: ICupom[] | []
   total: number
+  subtotal: number
 }
 
 export interface ICheckoutData {

@@ -2,40 +2,40 @@ import { OffersService } from '@/services/offers'
 import { ProductService } from '@/services/product'
 import { IOffer } from '@/types/globals/offers'
 import { IProduct } from '@/types/globals/products'
-import { ActionContext } from 'vuex'
+import { ActionContext, ActionTree, GetterTree, MutationTree } from 'vuex'
 
-interface ProductState {
+interface IProductState {
   list: IProduct[] | []
   offers: IOffer[] | []
 }
 
-const state: ProductState = {
+const state: IProductState = {
   list: [],
   offers: [],
 }
 
-const getters = {}
+const getters: GetterTree<IProductState, IProductState> = {}
 
-const actions = {
-  async getAllProducts({ commit }: ActionContext<ProductState, ProductState>) {
+const actions: ActionTree<IProductState, IProductState> = {
+  async getAllProducts({ commit }: ActionContext<IProductState, IProductState>) {
     const data = await ProductService.getAll()
     commit('setProducts', data)
   },
 
-  async getAllOffers({ commit }: ActionContext<ProductState, ProductState>) {
+  async getAllOffers({ commit }: ActionContext<IProductState, IProductState>) {
     const data = await OffersService.getAll()
     commit('setOffers', data)
   },
 }
 
-const mutations = {
-  setProducts(state: ProductState, products: IProduct[]) {
+const mutations: MutationTree<IProductState> = {
+  setProducts(state: IProductState, products: IProduct[]) {
     state.list = products
   },
-  setOffers(state: ProductState, offers: IOffer[]) {
+  setOffers(state: IProductState, offers: IOffer[]) {
     state.offers = offers
   },
-  incrementProductInventory(state: ProductState, { productId }: { productId: number }) {
+  incrementProductInventory(state: IProductState, { productId }: { productId: number }) {
     const product = state.list.find((product) => product.id === productId)
 
     if (product) {
@@ -43,7 +43,7 @@ const mutations = {
     }
   },
 
-  decrementProductInventory(state: ProductState, { productId }: { productId: number }) {
+  decrementProductInventory(state: IProductState, { productId }: { productId: number }) {
     const product = state.list.find((product) => product.id === productId)
 
     if (product && product.inventory >= 1) {

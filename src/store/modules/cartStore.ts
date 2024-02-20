@@ -2,11 +2,10 @@ import { GetterTree, ActionTree, MutationTree, ActionContext } from 'vuex'
 import { IProduct } from '@/types/globals/products'
 import {
   IAddressData,
-  ICardData,
   ICartItem,
   IOrderData,
+  IPaymentData,
   IUserData,
-  PaymentTypes,
 } from '@/types/globals/checkout'
 
 interface ICartState {
@@ -15,9 +14,10 @@ interface ICartState {
     id: string | number | null
     userInfo: IUserData | null
     address: IAddressData | null
-    payment: { type: PaymentTypes | null; card: ICardData | null }
+    payment: IPaymentData
     products: ICartItem[] | []
     total: number
+    subtotal?: number
   }
 
   checkoutStatus: string | null
@@ -38,10 +38,26 @@ const state: ICartState = {
 }
 
 const getters: GetterTree<ICartState, ICartState> = {
-  cartTotalPrice: (state: ICartState) => {
+  cartSubtotalPrice: (state: ICartState) => {
     return state.items.reduce((total: number, product: ICartItem) => {
       return total + product.price * product.quantity
     }, 0)
+  },
+  cartTotalPrice: (state: ICartState, _state, _rootState, rootGetters) => {
+    console.log('root', rootGetters)
+
+    const totalDiscount = rootGetters['cupons/getTotalDiscount']
+
+    console.log(totalDiscount)
+    const total = state.items.reduce((total: number, product: ICartItem) => {
+      return total + product.price * product.quantity
+    }, 0)
+
+    if (totalDiscount) {
+      return total - totalDiscount * 100
+    } else {
+      return total
+    }
   },
 }
 
@@ -129,7 +145,7 @@ const mutations: MutationTree<ICartState> = {
 
   setCartOrderData(
     state: ICartState,
-    { address, payment, userInfo, orderId, products, total }: IOrderData
+    { address, payment, userInfo, orderId, products, total, subtotal }: IOrderData
   ) {
     state.order.address = address
     state.order.payment = payment
@@ -137,6 +153,7 @@ const mutations: MutationTree<ICartState> = {
     state.order.id = orderId
     state.order.products = products
     state.order.total = total
+    state.order.subtotal = subtotal
   },
 }
 

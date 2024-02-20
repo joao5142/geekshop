@@ -1,5 +1,5 @@
 <template>
-  <v-form v-model="isPaymentDataValid">
+  <v-form v-model="isPaymentDataValid" @submit.prevent>
     <app-text as="strong" size="lg" class="d-block mb-8 mt-2">
       Selecione uma forma de pagamento
     </app-text>
@@ -46,77 +46,79 @@
         placeholder="Informe seu cpf"
       ></v-text-field>
 
-      <div v-if="selectPayment == 'CREDIT'">
-        <div class="separator my-3 mb-9"></div>
-        <app-text as="strong" size="lg" class="d-block mb-8">Dados do cartão</app-text>
-        <v-row>
-          <v-col cols="12" class="py-0">
-            <label for="card_user" class="d-block mt-1">
-              <app-text as="span" color="text-500" weight="medium" size="md">
-                Nome do titular
-              </app-text>
-            </label>
+      <template v-if="selectPayment == 'CREDIT'">
+        <div>
+          <div class="separator my-3 mb-9"></div>
+          <app-text as="strong" size="lg" class="d-block mb-8">Dados do cartão</app-text>
+          <v-row>
+            <v-col cols="12" class="py-0">
+              <label for="card_user" class="d-block mt-1">
+                <app-text as="span" color="text-500" weight="medium" size="md">
+                  Nome do titular
+                </app-text>
+              </label>
 
-            <v-text-field
-              id="card_user"
-              v-model="payment.card.user"
-              data-test="checkout-card-user-field"
-              :rules="[emptyValue]"
-              class="mt-2"
-              placeholder="Nome do titular"
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" md="9" class="py-0">
-            <label for="card_number" class="d-block mt-1">
-              <app-text as="span" color="text-500" weight="medium" size="md">
-                Numero do cartão
-              </app-text>
-            </label>
+              <v-text-field
+                id="card_user"
+                v-model="payment.card.user"
+                data-test="checkout-card-user-field"
+                :rules="[emptyValue]"
+                class="mt-2"
+                placeholder="Nome do titular"
+              ></v-text-field>
+            </v-col>
+            <v-col cols="12" md="9" class="py-0">
+              <label for="card_number" class="d-block mt-1">
+                <app-text as="span" color="text-500" weight="medium" size="md">
+                  Numero do cartão
+                </app-text>
+              </label>
 
-            <v-text-field
-              id="card_number"
-              v-model="payment.card.number"
-              v-maska:[cardMask]
-              data-test="checkout-card-number-field"
-              :rules="[emptyValue]"
-              class="mt-2"
-              placeholder="Número do cartão"
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" md="3" class="py-0">
-            <label for="card_code" class="d-block mt-1">
-              <app-text as="span" color="text-500" weight="medium" size="md">CVV</app-text>
-            </label>
+              <v-text-field
+                id="card_number"
+                v-model="payment.card.number"
+                v-maska:[cardMask]
+                data-test="checkout-card-number-field"
+                :rules="[emptyValue]"
+                class="mt-2"
+                placeholder="Número do cartão"
+              ></v-text-field>
+            </v-col>
+            <v-col cols="12" md="3" class="py-0">
+              <label for="card_code" class="d-block mt-1">
+                <app-text as="span" color="text-500" weight="medium" size="md">CVV</app-text>
+              </label>
 
-            <v-text-field
-              id="card_code"
-              v-model="payment.card.cvv"
-              v-maska:[cvvMask]
-              data-test="checkout-card-cvv-field"
-              :rules="[emptyValue]"
-              class="mt-2"
-              placeholder="Numero do cartão"
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" md="4" class="pt-0">
-            <label for="card_date" class="d-block mt-1">
-              <app-text as="span" color="text-500" weight="medium" size="md">
-                Data de vencimento
-              </app-text>
-            </label>
+              <v-text-field
+                id="card_code"
+                v-model="payment.card.cvv"
+                v-maska:[cvvMask]
+                data-test="checkout-card-cvv-field"
+                :rules="[emptyValue]"
+                class="mt-2"
+                placeholder="Numero do cartão"
+              ></v-text-field>
+            </v-col>
+            <v-col cols="12" md="4" class="pt-0">
+              <label for="card_date" class="d-block mt-1">
+                <app-text as="span" color="text-500" weight="medium" size="md">
+                  Data de vencimento
+                </app-text>
+              </label>
 
-            <v-text-field
-              id="card_date"
-              v-model="payment.card.date"
-              v-maska:[cardDateMask]
-              data-test="checkout-card-date-field"
-              :rules="[emptyValue]"
-              class="mt-2"
-              placeholder="Vencimento"
-            ></v-text-field>
-          </v-col>
-        </v-row>
-      </div>
+              <v-text-field
+                id="card_date"
+                v-model="payment.card.date"
+                v-maska:[cardDateMask]
+                data-test="checkout-card-date-field"
+                :rules="[emptyValue]"
+                class="mt-2"
+                placeholder="Vencimento"
+              ></v-text-field>
+            </v-col>
+          </v-row>
+        </div>
+      </template>
     </div>
   </v-form>
 </template>

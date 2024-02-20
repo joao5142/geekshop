@@ -75,5 +75,7 @@ body {
   box-shadow: none !important;
 }
 .v-navigation-drawer__scrim {
-  display: none !important;
+  position: fixed !important;
+
+  opacity: 0.04 !important;
 }

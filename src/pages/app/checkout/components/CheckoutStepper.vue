@@ -133,6 +133,10 @@ const steppers = [
   },
 ]
 
+const apliedCupons = computed(() => {
+  return store.state.cupons.activateCupons || []
+})
+
 const isContinueButtonEnable = computed(() => {
   if (currentStep.value == 0) {
     return isUserDataFormValid.value
@@ -156,9 +160,10 @@ function handlePrevStep() {
 
 async function handleConfirmOrder() {
   try {
-    const data = await CheckoutService.saveOrder(2134, {
+    const data = await CheckoutService.saveOrder({
       ...checkout.value,
       products: products.value,
+      cupons: apliedCupons.value,
     })
     console.log(data.orderId)
 
@@ -167,7 +172,9 @@ async function handleConfirmOrder() {
       orderId: data.orderId,
       products: products.value,
       total: data.total,
+      subtotal: data.subtotal,
     })
+    store.dispatch('cupons/clearActivatedCupons')
     store.dispatch('cart/clearCartItems')
 
     router.push({ path: '/app/order/' + data.orderId })

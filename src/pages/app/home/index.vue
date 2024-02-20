@@ -15,10 +15,15 @@
           :key="'product' + index"
           cols="12"
           md="6"
-          lg="3"
-          xl="3"
+          lg="4"
+          xl="4"
         >
-          <product-card :data-test="'product-item' + (index + 1)" :product="product" />
+          <product-card
+            class="cursor-pointer"
+            :data-test="'product-item' + (index + 1)"
+            :product="product"
+            @click.stop="handleNavigateToProduct(product.id)"
+          />
         </v-col>
       </v-row>
     </section>
@@ -73,5 +78,8 @@ const offers = computed(() => {
 
 function handleNavigateToOffer(offerId: number) {
   router.push({ path: '/app/offer/' + offerId })
+}
+function handleNavigateToProduct(productId: number) {
+  router.push({ path: '/app/product/' + productId })
 }
 </script>

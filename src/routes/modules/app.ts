@@ -6,6 +6,7 @@ import PerfilView from '@/pages/app/perfil/index.vue'
 import CheckoutView from '@/pages/app/checkout/index.vue'
 import OrderView from '@/pages/app/order/[id]/index.vue'
 import OfferView from '@/pages/app/offer/[id]/index.vue'
+import ProductView from '@/pages/app/product/[id]/index.vue'
 
 export default [
   {
@@ -40,6 +41,10 @@ export default [
       {
         path: 'offer/:id',
         component: OfferView,
+      },
+      {
+        path: 'product/:id',
+        component: ProductView,
       },
     ],
   },

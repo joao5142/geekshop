@@ -1,37 +1,44 @@
 [
   {
+    "id": 1,
     "discount": 0.1,
-    "description": "10% discount offer",
+    "description": "10% de desconto",
     "image": "/cupons/10_percent.png"
   },
   {
+    "id": 2,
     "discount": 0.2,
-    "description": "20% discount offer",
+    "description": "20% de desconto",
     "image": "/cupons/20_percent.png"
   },
   {
+    "id": 3,
     "discount": 0.3,
-    "description": "30% discount offer",
+    "description": "30% de desconto",
     "image": "/cupons/30_percent.png"
   },
   {
+    "id": 4,
     "discount": 0.45,
-    "description": "45% discount offer",
+    "description": "45% de desconto",
     "image": "/cupons/45_percent.png"
   },
   {
+    "id": 5,
     "discount": 0.5,
-    "description": "50% discount offer",
+    "description": "50% de desconto",
     "image": "/cupons/50_percent.png"
   },
   {
+    "id": 6,
     "discount": 0.6,
-    "description": "60% discount offer",
+    "description": "60% de desconto",
     "image": "/cupons/60_percent.png"
   },
   {
+    "id": 7,
     "discount": 0.7,
-    "description": "70% discount offer",
+    "description": "70% de desconto",
     "image": "/cupons/70_percent.png"
   }
 ]

@@ -12,7 +12,7 @@
         @click="handleNavigateToCheckout"
       >
         <app-text as="span" color="text-800" class="me-3" weight="medium">
-          {{ itemsQuantity }} Items
+          {{ itemsQuantity }} {{ itemsQuantity == 1 ? 'Item' : 'Items' }}
         </app-text>
         <ph-shopping-cart-simple :size="25" color="black" />
       </div>

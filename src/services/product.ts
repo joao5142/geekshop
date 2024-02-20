@@ -7,4 +7,10 @@ export class ProductService {
 
     return products.data
   }
+
+  static async getById(id: string | number): Promise<unknown> {
+    const products = await httpClient.get(BASE_URL_API + '/products/' + id)
+
+    return products.data
+  }
 }

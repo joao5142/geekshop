@@ -3,7 +3,7 @@
     <app-text as="strong" size="xl" class="d-block mb-5">Pedido Confirmado !</app-text>
 
     <v-row>
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="6" class="order-2 order-md-1">
         <div>
           <div class="order__box">
             <app-text as="span" size="md">
@@ -14,9 +14,9 @@
           <div class="order__box">
             <app-text as="span" size="md">
               <strong>Endreço:</strong>
-              {{ order.address.street }}, {{ order.address.streetNumber }} ,{{
-                order.address.uf
-              }}-{{ order.address.cep }}
+              {{ order?.address?.street }}, {{ order?.address?.streetNumber }} ,{{
+                order?.address?.uf
+              }}-{{ order?.address.cep }}
             </app-text>
           </div>
           <div class="order__box">
@@ -36,7 +36,12 @@
                       {{ product.name }}
                     </app-text>
                     <app-text as="span" size="md">{{ product.description }}</app-text>
+
+                    <app-text as="strong" size="md" class="d-block mt-3" weight="semibold">
+                      {{ formatNumber.format(product.quantity * product.price) }}x
+                    </app-text>
                   </div>
+
                   <app-text as="strong" size="md">{{ product.quantity }}x</app-text>
                 </div>
                 <div class="order__product-separator mt-2"></div>
@@ -45,13 +50,21 @@
           </div>
           <div class="order__box">
             <app-text as="span" size="md" class="text-end d-block">
+              <strong>Subtotal :</strong>
+              {{ formatNumber.format(order.subtotal) }}
+            </app-text>
+            <app-text as="span" size="md" class="text-end d-block my-3" color="red-400">
+              <strong>Descontos :</strong>
+              {{ formatNumber.format(order.total - order.subtotal) }}
+            </app-text>
+            <app-text as="span" size="md" class="text-end d-block">
               <strong>Total :</strong>
-              {{ order.total }}
+              {{ formatNumber.format(order.total) }}
             </app-text>
           </div>
         </div>
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="6" class="order-1 order-md-2">
         <div v-if="order.payment.type !== 'CREDIT'">
           <div class="order__payment-pending mb-4">Pagamento (Pendente)</div>
 
@@ -71,6 +84,7 @@ import { computed } from 'vue'
 import AppText from '@/components/ui/AppText.vue'
 import QrcodeVue from 'qrcode.vue'
 import Barcode from '@/components/partials/Barcode.vue'
+import { formatNumber } from '@/utils/currency/index'
 
 const store = useStore()
 
@@ -127,6 +141,8 @@ const order = computed(() => {
     gap: 1rem;
 
     &-img {
+      object-fit: contain;
+      width: 70px;
       height: 100px;
     }
     &-separator {
