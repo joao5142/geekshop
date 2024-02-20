@@ -45,8 +45,6 @@
 <hr/>
 <img margin-bottom="20px" src="/src/assets/readme/readme6.png">
 
-<h4  style="display: inline_block">Visualização do site :</h4><a style="display: inline_block" target="blank" href="https://twitter-frontend-theta.vercel.app/">Preview na Vercel</a>
-
 <h2>🧑🏻‍ Autor</h2>
 <p>Feito por João paulo</p>
 <a href="mailto:joaopauloneto3687@gmail.com">
