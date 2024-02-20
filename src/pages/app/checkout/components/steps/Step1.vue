@@ -7,6 +7,7 @@
     <v-text-field
       id="name"
       v-model="userInfo.name"
+      data-test="checkout-name-field"
       :rules="[emptyValue]"
       class="mt-2"
       placeholder="Informe seu nome completo"
@@ -19,6 +20,7 @@
     <v-text-field
       id="email"
       v-model="userInfo.email"
+      data-test="checkout-email-field"
       :rules="[emptyValue, isEmail]"
       class="mt-2"
       placeholder="Informe seu nome completo"
@@ -32,6 +34,7 @@
       id="phone"
       v-model="userInfo.phone"
       v-maska:[phoneMask]
+      data-test="checkout-phone-field"
       :rules="[emptyValue, isPhoneNumber]"
       class="mt-2"
       placeholder="Informe seu telefone"
@@ -48,11 +51,11 @@ import { vMaska } from 'maska'
 
 import { emptyValue, isEmail, isPhoneNumber } from '@/utils/fieldRules'
 import { defineModel } from 'vue'
-import { UserData } from '@/store/modules/cartStore'
+import { IUserData } from '@/types/globals/checkout'
 
 const isUserDataFormValid = defineModel<boolean>()
 
-const userInfo = defineModel<UserData>('userInfo', { required: true })
+const userInfo = defineModel<IUserData>('userInfo', { required: true })
 </script>
 
 <style scoped></style>

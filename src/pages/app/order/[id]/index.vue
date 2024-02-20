@@ -55,12 +55,7 @@
         <div v-if="order.payment.type !== 'CREDIT'">
           <div class="order__payment-pending mb-4">Pagamento (Pendente)</div>
 
-          <qrcode-vue
-            v-if="order.payment.type == 'PIX'"
-            :value="452127878545546456123123123"
-            :level="level"
-            :render-as="renderAs"
-          />
+          <qrcode-vue v-if="order.payment.type == 'PIX'" :value="'452127878545546456123123123'" />
           <barcode v-else-if="order.payment.type == 'BILLET'" value="123" />
         </div>
 
@@ -71,7 +66,6 @@
 </template>
 
 <script setup lang="ts">
-import ImgOrder from '@/assets/order.jpg'
 import { useStore } from 'vuex'
 import { computed } from 'vue'
 import AppText from '@/components/ui/AppText.vue'

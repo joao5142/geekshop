@@ -70,3 +70,10 @@ body {
 .hint--orange .v-input__details {
   color: rgb(var(--v-theme-red-300)) !important;
 }
+
+.v-navigation-drawer {
+  box-shadow: none !important;
+}
+.v-navigation-drawer__scrim {
+  display: none !important;
+}

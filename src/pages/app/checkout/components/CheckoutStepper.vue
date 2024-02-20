@@ -47,6 +47,7 @@
           v-if="currentStep !== steppers.length - 1"
           class="px-15 ms-6"
           :disabled="!isContinueButtonEnable"
+          data-test="checkout-continue-btn"
           @click="handleNextStep"
         >
           <app-text as="span" color="text-100">Continuar</app-text>
@@ -56,6 +57,7 @@
           v-else
           class="px-15 ms-6"
           :disabled="!isPaymentDataValid"
+          data-test="checkout-confirm-btn"
           @click="handleConfirmOrder"
         >
           <app-text as="span" color="text-100">Finalizar Pedido</app-text>
@@ -75,10 +77,10 @@ import { PhUser, PhCube, PhCreditCard, PhCaretLeft } from '@phosphor-icons/vue'
 import { useTheme } from 'vuetify'
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
-import { CheckoutService } from '../../../../services/checkout'
+import { CheckoutService } from '@/services/checkout'
 import { toast } from 'vue3-toastify'
 import { useRouter } from 'vue-router'
-import { CheckoutData } from '../../../../store/modules/cartStore'
+import { ICheckoutData } from '@/types/globals/checkout'
 
 const router = useRouter()
 const store = useStore()
@@ -90,7 +92,7 @@ const isUserDataFormValid = ref<boolean>(false)
 const isSendDataFormValid = ref<boolean>(false)
 const isPaymentDataValid = ref<boolean>(false)
 
-const checkout = ref<CheckoutData>({
+const checkout = ref<ICheckoutData>({
   userInfo: { name: '', cpf: '', email: '', phone: '' },
   payment: {
     card: {

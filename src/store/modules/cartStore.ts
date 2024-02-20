@@ -1,63 +1,29 @@
 import { GetterTree, ActionTree, MutationTree, ActionContext } from 'vuex'
-import { Product } from './productsStore'
+import { IProduct } from '@/types/globals/products'
+import {
+  IAddressData,
+  ICardData,
+  ICartItem,
+  IOrderData,
+  IUserData,
+  PaymentTypes,
+} from '@/types/globals/checkout'
 
-interface CartItem extends Product {
-  quantity: number
-}
-
-export type PaymentTypes = 'CREDIT' | 'BILLET' | 'PIX'
-export interface UserData {
-  name: string
-  phone: string
-  email: string
-  cpf: string
-}
-export interface AddressData {
-  street: string
-  streetNumber: number | string
-  uf: string
-  city: string
-  cep: string
-}
-interface CardData {
-  user: string
-  number: string
-  cvv: string
-  date: string
-}
-export interface PaymentData {
-  type: PaymentTypes
-  card: CardData
-}
-export interface OrderData {
-  orderId: string | number | null
-  userInfo: UserData
-  address: AddressData
-  payment: PaymentData
-  products: CartItem[] | []
-  total: number
-}
-
-export interface CheckoutData {
-  userInfo: UserData
-  address: AddressData
-  payment: PaymentData
-}
-interface CartState {
-  items: CartItem[]
+interface ICartState {
+  items: ICartItem[]
   order: {
     id: string | number | null
-    userInfo: UserData | null
-    address: AddressData | null
-    payment: { type: PaymentTypes | null; card: CardData | null }
-    products: CartItem[] | []
+    userInfo: IUserData | null
+    address: IAddressData | null
+    payment: { type: PaymentTypes | null; card: ICardData | null }
+    products: ICartItem[] | []
     total: number
   }
 
   checkoutStatus: string | null
 }
 
-const state: CartState = {
+const state: ICartState = {
   items: [],
   order: {
     id: '',
@@ -71,19 +37,19 @@ const state: CartState = {
   checkoutStatus: null,
 }
 
-const getters: GetterTree<CartState, CartState> = {
-  cartTotalPrice: (state: CartState) => {
-    return state.items.reduce((total: number, product: CartItem) => {
+const getters: GetterTree<ICartState, ICartState> = {
+  cartTotalPrice: (state: ICartState) => {
+    return state.items.reduce((total: number, product: ICartItem) => {
       return total + product.price * product.quantity
     }, 0)
   },
 }
 
-const actions: ActionTree<CartState, CartState> = {
-  addProductToCart({ state, commit }: ActionContext<CartState, CartState>, product: Product) {
+const actions: ActionTree<ICartState, ICartState> = {
+  addProductToCart({ state, commit }: ActionContext<ICartState, ICartState>, product: IProduct) {
     console.log('addToCart')
     if (product.inventory > 0) {
-      const cartItem = state.items.find((item: CartItem) => item.id === product.id)
+      const cartItem = state.items.find((item: ICartItem) => item.id === product.id)
 
       if (!cartItem) {
         commit('pushProductToCart', { ...product })
@@ -96,11 +62,11 @@ const actions: ActionTree<CartState, CartState> = {
   },
 
   decreaseProductFromCart(
-    { state, commit }: ActionContext<CartState, CartState>,
-    product: Product
+    { state, commit }: ActionContext<ICartState, ICartState>,
+    product: IProduct
   ) {
     if (product.inventory > 0) {
-      const cartItem = state.items.find((item: CartItem) => item.id === product.id)
+      const cartItem = state.items.find((item: ICartItem) => item.id === product.id)
 
       if (cartItem) {
         if (cartItem.quantity == 1) {
@@ -113,57 +79,57 @@ const actions: ActionTree<CartState, CartState> = {
       commit('products/decrementProductInventory', { id: product.id }, { root: true })
     }
   },
-  clearCartItems({ commit }: ActionContext<CartState, CartState>) {
+  clearCartItems({ commit }: ActionContext<ICartState, ICartState>) {
     commit('clearCartItems')
   },
-  setCartOrderData({ commit }: ActionContext<CartState, CartState>, order: OrderData) {
+  setCartOrderData({ commit }: ActionContext<ICartState, ICartState>, order: IOrderData) {
     commit('setCartOrderData', order)
   },
 }
 
-const mutations: MutationTree<CartState> = {
-  pushProductToCart(state: CartState, item: CartItem) {
+const mutations: MutationTree<ICartState> = {
+  pushProductToCart(state: ICartState, item: ICartItem) {
     state.items.push({
       ...item,
       quantity: 1,
     })
   },
 
-  clearCartItems(state: CartState) {
+  clearCartItems(state: ICartState) {
     state.items = []
   },
 
-  incrementItemQuantity(state: CartState, { id }: CartItem) {
+  incrementItemQuantity(state: ICartState, { id }: ICartItem) {
     const cartItem = state.items.find((item) => item.id === id)
     console.log(cartItem, 'increment')
     if (cartItem) {
       cartItem.quantity++
     }
   },
-  removeProductFromCart(state: CartState, { id }: CartItem) {
+  removeProductFromCart(state: ICartState, { id }: ICartItem) {
     const cartItemIndex = state.items.findIndex((item) => item.id === id)
     if (cartItemIndex !== -1) {
       state.items.splice(cartItemIndex, 1)
     }
   },
-  decrementItemQuantity(state: CartState, { id }: CartItem) {
+  decrementItemQuantity(state: ICartState, { id }: ICartItem) {
     const cartItem = state.items.find((item) => item.id === id)
     if (cartItem) {
       cartItem.quantity--
     }
   },
 
-  setCartItems(state: CartState, { items }: { items: CartItem[] }) {
+  setCartItems(state: ICartState, { items }: { items: ICartItem[] }) {
     state.items = items
   },
 
-  setCheckoutStatus(state: CartState, status: string | null) {
+  setCheckoutStatus(state: ICartState, status: string | null) {
     state.checkoutStatus = status
   },
 
   setCartOrderData(
-    state: CartState,
-    { address, payment, userInfo, orderId, products, total }: OrderData
+    state: ICartState,
+    { address, payment, userInfo, orderId, products, total }: IOrderData
   ) {
     state.order.address = address
     state.order.payment = payment

@@ -17,7 +17,7 @@ interface IProps {
   borderColor?: ColorTypes
   color?: ColorTypes
   background?: ColorTypes
-  size?: 'xl' | 'lg' | 'md' | 'sm' | '1xl' | '2xl' | '3xl' | '4xl'
+  size?: 'xs' | 'xl' | 'lg' | 'md' | 'sm' | '1xl' | '2xl' | '3xl' | '4xl'
 
   transparent?: boolean
 

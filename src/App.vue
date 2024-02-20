@@ -1,6 +1,8 @@
 <template>
   <v-app>
-    <router-view />
+    <component :is="$route.meta.layoutComponent">
+      <router-view />
+    </component>
   </v-app>
 </template>
 
@@ -9,4 +11,5 @@ import { useStore } from 'vuex'
 const store = useStore()
 
 store.dispatch('products/getAllProducts')
+store.dispatch('products/getAllOffers')
 </script>

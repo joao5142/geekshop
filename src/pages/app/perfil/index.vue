@@ -44,7 +44,6 @@
 </template>
 
 <script setup lang="ts">
-import { PhPencilSimple } from '@phosphor-icons/vue'
 import AppText from '@/components/ui/AppText.vue'
 import AppButton from '@/components/ui/AppButton.vue'
 </script>

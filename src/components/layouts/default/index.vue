@@ -1,20 +1,27 @@
 <template>
-  <v-layout>
-    <v-app-bar elevation="0" class="header">
-      <v-container><header-component /></v-container>
-    </v-app-bar>
-    <v-main class="mt-15">
-      <v-container>
-        <router-view></router-view>
-      </v-container>
-    </v-main>
+  <fragment>
+    <v-layout class="d-flex flex-column">
+      <v-app-bar elevation="0" class="header">
+        <v-container><header-component /></v-container>
+      </v-app-bar>
+
+      <v-main class="mt-15">
+        <v-container>
+          <router-view></router-view>
+        </v-container>
+      </v-main>
+      <v-footer class="pa-0">
+        <footer-component />
+      </v-footer>
+    </v-layout>
     <loading-component />
-  </v-layout>
+  </fragment>
 </template>
 
 <script setup lang="ts">
-import HeaderComponent from './components/Header.vue'
-import LoadingComponent from './components/Loading.vue'
+import HeaderComponent from '../components/Header.vue'
+import LoadingComponent from '../components/Loading.vue'
+import FooterComponent from '../components/Footer.vue'
 </script>
 
 <style scoped lang="scss">

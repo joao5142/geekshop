@@ -6,7 +6,7 @@
       <app-text as="p" class="d-block mt-2" size="sm">{{ product.description }}</app-text>
 
       <div class="d-flex align-center justify-space-between mt-3">
-        <div>
+        <div v-if="!offer">
           <product-quantity-change
             :quantity="productQuantity"
             @increase="handleAddToCart"
@@ -32,23 +32,19 @@ import AppButton from '@/components/ui/AppButton.vue'
 import ProductQuantityChange from './ProductQuantityChange.vue'
 import { useStore } from 'vuex'
 import { formatNumber } from '@/utils/currency/index'
-import { Product } from '@/store/modules/productsStore'
+import { IProduct } from '@/types/globals/products'
 
-interface IProduct {
-  product: {
-    id: number
-    name: string
-    description: string
-    price: number
-    image: string
-    inventory: number
-  }
+interface IProductProps {
+  product: IProduct
+  offer?: { price: number; id: number }
 }
 const store = useStore()
-const props = defineProps<IProduct>()
+const props = defineProps<IProductProps>()
 
 const productQuantity = computed(() => {
-  const productItem = store?.state?.cart?.items.find((item: Product) => item.id == props.product.id)
+  const productItem = store?.state?.cart?.items.find(
+    (item: IProduct) => item.id == props.product.id
+  )
   if (productItem) {
     return productItem.quantity
   }
@@ -93,6 +89,7 @@ function handleRemoveFromCart() {
   border-radius: variables.$border-radius;
 
   height: 100%;
+  width: 100%;
 
   display: flex;
 

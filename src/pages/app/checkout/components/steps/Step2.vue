@@ -8,6 +8,7 @@
       id="cep"
       v-model="address.cep"
       v-maska:[cepMask]
+      data-test="checkout-cep-field"
       :rules="[isCep]"
       class="mt-2"
       placeholder="Cep"
@@ -21,6 +22,7 @@
     <v-text-field
       id="city"
       v-model="address.city"
+      data-test="checkout-city-field"
       :rules="[emptyValue]"
       class="mt-2"
       placeholder="Informe sua cidade"
@@ -32,6 +34,7 @@
 
     <v-select
       v-model="address.uf"
+      data-test="checkout-uf-field"
       item-title="nome"
       item-value="sigla"
       class="mt-2"
@@ -48,6 +51,7 @@
         <v-text-field
           id="street"
           v-model="address.street"
+          data-test="checkout-street-field"
           :rules="[emptyValue]"
           class="mt-2"
           placeholder="Informe sua rua"
@@ -62,6 +66,7 @@
         <v-text-field
           id="street_number"
           v-model="address.streetNumber"
+          data-test="checkout-street-number-field"
           :rules="[isANumber, emptyValue]"
           class="mt-2"
           placeholder="Número"
@@ -73,33 +78,15 @@
 
 <script setup lang="ts">
 import AppText from '@/components/ui/AppText.vue'
-import httpClient from '@/lib/api'
 import { cepMask } from '@/utils/fieldMask'
 
 import { vMaska } from 'maska'
 
 import { emptyValue, isCep, isANumber } from '@/utils/fieldRules'
 import { ref, defineModel } from 'vue'
-import { AddressData } from '@/store/modules/cartStore'
-
-interface IFieldData {
-  cep: string
-  logradouro: string
-  complemento: string
-  bairro: string
-  localidade: string
-  uf: string
-  ibge: string
-  gia: string
-  ddd: string
-  siafi: string
-}
-interface IState {
-  id: number
-  sigla: string
-  nome: string
-  regiao: {}
-}
+import { AddressService } from '@/services/address'
+import { IState, IFieldData } from '@/types/globals/address'
+import { IAddressData } from '@/types/globals/checkout'
 
 const form = ref()
 
@@ -107,12 +94,11 @@ const isSendDataValid = defineModel<boolean>()
 
 const brazilStates = ref<IState[] | []>([])
 
-const address = defineModel<AddressData>('address', { required: true })
+const address = defineModel<IAddressData>('address', { required: true })
 
 async function getAllStates() {
   try {
-    const { data } = await httpClient.get(`https://brasilapi.com.br/api/ibge/uf/v1`)
-    brazilStates.value = data
+    brazilStates.value = await AddressService.getStates()
   } catch (err) {
     console.error(err)
   }
@@ -123,7 +109,7 @@ function validateForm() {
 
 async function handleGetInfosByCep() {
   try {
-    const { data } = await httpClient.get(`https://viacep.com.br/ws/${address.value.cep}/json`)
+    const data = await AddressService.getInfosByCep(address.value.cep)
     populateFieldByCep(data)
     validateForm()
   } catch (err) {

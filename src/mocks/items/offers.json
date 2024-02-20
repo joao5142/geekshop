@@ -1,0 +1,84 @@
+[
+  {
+    "id": 1,
+    "offerPrice": "175.69",
+    "percentage": 30,
+    "product": {
+      "id": 15,
+      "name": "Jiraiya",
+      "description": "Jiraiya (Naruto Shippuden)",
+      "price": "250.99",
+      "image": "https://m.media-amazon.com/images/I/61mvureNgkL._AC_SY879_.jpg",
+      "inventory": "2",
+      "about": [
+        "Ideal Para Presentear Ou Colecionar",
+        "ESTE PRODUTO É RECOMENDADO PARA MAIORES DE 15 ANOS, NÃO É BRINQUEDO"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "offerPrice": "150.50",
+    "percentage": 50,
+    "product": {
+      "id": 16,
+      "name": "Baby Yoda",
+      "description": "Baby Yoda",
+      "price": "300.99",
+      "image": "https://m.media-amazon.com/images/I/71X2u76uX3L._AC_SX679_.jpg",
+      "inventory": "1",
+      "about": [
+        "Esse brinquedo de pelúcia de A Criança de 11 polegadas vai roubar os corações dos fãs de Star Wars em todo lugar!",
+        "Inspirado pela série da Disney+, O Mandaloriano, o adorável boneco de pele verde, grandes orelhas e olhos se parece com um bebê Yoda, mas é chamado de A Criança."
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "offerPrice": "159.99",
+    "percentage": 20,
+    "product": {
+      "id": 17,
+      "name": "Buzz",
+      "description": "Disney Toy Story Buzz",
+      "price": "199.99",
+      "image": "https://m.media-amazon.com/images/I/61uqdfdzPhL._AC_SX679_.jpg",
+      "inventory": "1",
+      "about": [
+        "Aproveite A Visita E Confira Toda A Nossa Linha De Produtos",
+        "Fabricado Com Materiais De Boa Qualidade"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "offerPrice": "450.89",
+    "percentage": 10,
+    "product": {
+      "id": 18,
+      "name": "Luffy Gear 5",
+      "description": "Luffy Gear 5",
+      "price": "500.99",
+      "image": "https://m.media-amazon.com/images/I/71TWv0qMf+L._AC_SX679_.jpg",
+      "inventory": "2",
+      "about": [
+        "Bonecos de uma peça de 20 cm, Luffy Gear 5 quinta engrenagem Luffy feito à mão em PVC anime mangá personagem estátua de modelo: pode ser usado como um brinquedo de coleção, decoração de mesa e ornamento.",
+        "Seguro e durável: todos os nossos produtos são feitos de material de PVC, garantindo que eles não sejam apenas divertidos, mas também seguros para nossos clientes."
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "offerPrice": "212.80",
+    "percentage": 20,
+    "product": {
+      "id": 19,
+      "name": "Itachi",
+      "description": "NARUTO SHIPPUDEN - ITACHI UCHIHA",
+      "price": "266",
+      "image": "https://m.media-amazon.com/images/I/61MsdvdcQnL._AC_SX679_.jpg",
+      "inventory": "2",
+      "about": ["Tamanho (C x L x A): 14 cm x 13 cm x 15 cm.", "Série: Naruto Shippuden"]
+    }
+  }
+]

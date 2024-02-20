@@ -39,7 +39,7 @@
 
     <div v-else class="d-flex flex-column align-center">
       <img :src="CartImage" alt="Cart" class="cart-img" />
-      <app-text as="span" size="lg" weight="medium">Você não possui itens do carrinho</app-text>
+      <app-text as="span" size="xl" weight="medium">Você não possui itens do carrinho</app-text>
       <app-button outlined border-color="green-300" class="mt-3" @click="handleNavigateToHome">
         <ph-arrow-left :color="green300" size="18" class="me-2" />
         <app-text as="span" color="green-300">Voltar</app-text>

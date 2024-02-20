@@ -10,6 +10,7 @@
         :key="'paymentMethod' + index"
         :outlined="selectPayment !== paymentMethod.type"
         border-color="green-300"
+        :data-test="`checkout-payment-` + paymentMethod.type + '-field'"
         @click="
           () => {
             selectPayment = paymentMethod.type
@@ -39,6 +40,7 @@
         id="cpf"
         v-model="cpf"
         v-maska:[cpfMask]
+        data-test="checkout-cpf-field"
         :rules="[emptyValue]"
         class="mt-2"
         placeholder="Informe seu cpf"
@@ -58,6 +60,7 @@
             <v-text-field
               id="card_user"
               v-model="payment.card.user"
+              data-test="checkout-card-user-field"
               :rules="[emptyValue]"
               class="mt-2"
               placeholder="Nome do titular"
@@ -74,6 +77,7 @@
               id="card_number"
               v-model="payment.card.number"
               v-maska:[cardMask]
+              data-test="checkout-card-number-field"
               :rules="[emptyValue]"
               class="mt-2"
               placeholder="Número do cartão"
@@ -81,15 +85,14 @@
           </v-col>
           <v-col cols="12" md="3" class="py-0">
             <label for="card_code" class="d-block mt-1">
-              <app-text as="span" color="text-500" weight="medium" size="md">
-                Codígo de segurança
-              </app-text>
+              <app-text as="span" color="text-500" weight="medium" size="md">CVV</app-text>
             </label>
 
             <v-text-field
               id="card_code"
               v-model="payment.card.cvv"
               v-maska:[cvvMask]
+              data-test="checkout-card-cvv-field"
               :rules="[emptyValue]"
               class="mt-2"
               placeholder="Numero do cartão"
@@ -106,6 +109,7 @@
               id="card_date"
               v-model="payment.card.date"
               v-maska:[cardDateMask]
+              data-test="checkout-card-date-field"
               :rules="[emptyValue]"
               class="mt-2"
               placeholder="Vencimento"
@@ -122,14 +126,13 @@ import { PhCreditCard, PhCurrencyDollarSimple, PhMoney } from '@phosphor-icons/v
 import AppButton from '@/components/ui/AppButton.vue'
 import AppText from '@/components/ui/AppText.vue'
 import { ref, defineModel } from 'vue'
-import { PaymentTypes } from '@/store/modules/cartStore'
 import { useTheme } from 'vuetify'
 import { cpfMask, cardMask, cardDateMask, cvvMask } from '@/utils/fieldMask'
 
 import { vMaska } from 'maska'
 
 import { emptyValue } from '@/utils/fieldRules'
-import { PaymentData } from '@/store/modules/cartStore'
+import { IPaymentData, PaymentTypes } from '@/types/globals/checkout'
 
 const selectPayment = ref<PaymentTypes>('CREDIT')
 
@@ -162,7 +165,7 @@ const paymentMethods: IPaymentMethod[] = [
   },
 ]
 
-const payment = defineModel<PaymentData>('payment', { required: true })
+const payment = defineModel<IPaymentData>('payment', { required: true })
 const cpf = defineModel<string>('cpf', { required: true })
 </script>
 
