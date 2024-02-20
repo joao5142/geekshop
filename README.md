@@ -17,7 +17,7 @@
 
 <h3> Teste Unitários</h3>
 <ul>
-	<li>Rode o comando npm run test(:watch,:ui,:coverage)</li>
+	<li>Rode o comando npm run test(:watch, :ui, :coverage)</li>
 </ul>
 <h3> Teste E2E</h3>
 <ul>
