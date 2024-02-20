@@ -89,6 +89,7 @@
     "description": "Funko Boneco Pop de vinil Pop de uma peça de animação Luffy Gear Two",
     "price": "279.92",
     "image": "https://m.media-amazon.com/images/I/81ND5D0MrhL._AC_SX679_.jpg",
-    "inventory": "7"
+    "inventory": "7",
+    "about": ["Anime", "One Piece", "Material de alta qualidade"]
   }
 ]
