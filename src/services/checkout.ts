@@ -13,7 +13,7 @@ export class CheckoutService {
     order: OrderData
   ): Promise<{ orderId: string; total: string }> {
     const products = await httpClient.post(`${BASE_URL_API}/offers/${offerCode}/create_order`, {
-      order,
+      ...order,
     })
 
     return products.data

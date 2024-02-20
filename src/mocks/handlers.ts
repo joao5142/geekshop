@@ -4,7 +4,12 @@ import cupons from './items/cupons.json'
 import offers from './items/offers.json'
 import { v4 as uuidv4 } from 'uuid'
 import { BASE_URL_API } from '@/lib/api'
+import { ICheckoutData } from '@/types/globals/checkout'
+import { IProduct } from '@/types/globals/products'
 
+interface OrderData extends ICheckoutData {
+  products: IProduct[]
+}
 export const handlers = [
   //PRODUCTS
   http.get(BASE_URL_API + '/products', () => {
@@ -34,12 +39,29 @@ export const handlers = [
     return HttpResponse.json(offer)
   }),
 
-  http.post(BASE_URL_API + '/offers/:offer_id/create_order', ({ params }) => {
-    console.log(params)
+  http.post<never, OrderData, never>(
+    BASE_URL_API + '/offers/:offer_id/create_order',
+    async ({ request }) => {
+      const { userInfo } = await request.json()
 
-    return HttpResponse.json({
-      orderId: uuidv4(),
-      total: 444.33,
-    })
-  }),
+      console.log(userInfo)
+      const invalidCpf = /^0{3}\.0{3}\.0{3}-0{2}$/
+
+      if (userInfo.cpf.match(invalidCpf)) {
+        return HttpResponse.json(
+          {
+            error: {
+              message: 'Cpf informado não é valido',
+            },
+          },
+          { status: 400 }
+        )
+      }
+
+      return HttpResponse.json({
+        orderId: uuidv4(),
+        total: 444.33,
+      })
+    }
+  ),
 ]

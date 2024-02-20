@@ -81,6 +81,7 @@ import { CheckoutService } from '@/services/checkout'
 import { toast } from 'vue3-toastify'
 import { useRouter } from 'vue-router'
 import { ICheckoutData } from '@/types/globals/checkout'
+import { AppError } from '@/utils/erros/AppError'
 
 const router = useRouter()
 const store = useStore()
@@ -173,10 +174,17 @@ async function handleConfirmOrder() {
   } catch (err) {
     console.error(err)
 
-    toast('Ocorreu um problema ao salvar seu pedido!', {
-      autoClose: 5000,
-      type: 'error',
-    })
+    if (err instanceof AppError) {
+      toast(err.message, {
+        autoClose: 5000,
+        type: 'error',
+      })
+    } else {
+      toast('Ocorreu um problema ao salvar seu pedido!', {
+        autoClose: 5000,
+        type: 'error',
+      })
+    }
   }
 }
 </script>

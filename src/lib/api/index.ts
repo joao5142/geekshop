@@ -1,3 +1,4 @@
+/* eslint-disable */
 import store from '@/store'
 import { AppError } from '@/utils/erros/AppError'
 import axios, { AxiosRequestConfig, AxiosRequestHeaders, AxiosResponse } from 'axios'
@@ -47,7 +48,7 @@ axiosInstance.interceptors.response.use(
     store.commit('loading/setIsLoading', false)
 
     if (error.response && error.response.data) {
-      return Promise.reject(new AppError(error.response.data.message))
+      return Promise.reject(new AppError(error.response.data.error.message))
     } else {
       return Promise.reject(error)
     }
