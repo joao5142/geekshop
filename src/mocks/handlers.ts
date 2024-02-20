@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { BASE_URL_API } from '@/lib/api'
 import { ICheckoutData } from '@/types/globals/checkout'
 import { IProduct } from '@/types/globals/products'
+import { checkCpfIsInvalid } from '@/utils/checkout'
 
 interface OrderData extends ICheckoutData {
   products: IProduct[]
@@ -45,9 +46,8 @@ export const handlers = [
       const { userInfo } = await request.json()
 
       console.log(userInfo)
-      const invalidCpf = /^0{3}\.0{3}\.0{3}-0{2}$/
 
-      if (userInfo.cpf.match(invalidCpf)) {
+      if (checkCpfIsInvalid(userInfo.cpf)) {
         return HttpResponse.json(
           {
             error: {
