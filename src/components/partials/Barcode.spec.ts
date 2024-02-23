@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils'
 
 import Barcode from './Barcode.vue'
 
-describe('App Button', () => {
+describe('AppBarcode', () => {
   it('should be render correctly', () => {
     const wrapper = mount(Barcode)
     expect(wrapper.vm).toBeTruthy()

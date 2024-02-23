@@ -1,5 +1,4 @@
-import DefaultViewLayout from '@/components/layouts/default/index.vue'
-import BlankViewLayout from '@/components/layouts/blank/index.vue'
+import AppViewDefaultLayout from '@/components/layouts/app/index.vue'
 
 import HomeView from '@/pages/app/home/index.vue'
 import PerfilView from '@/pages/app/perfil/index.vue'
@@ -12,14 +11,14 @@ export default [
   {
     path: '/app',
     meta: {
-      layoutComponent: BlankViewLayout,
+      layoutComponent: AppViewDefaultLayout,
     },
     children: [
       {
         path: 'home',
         component: HomeView,
         meta: {
-          layoutComponent: DefaultViewLayout,
+          showFooter: true,
         },
       },
 

@@ -1,10 +1,10 @@
-import DefaultViewLayout from '@/components/layouts/default/index.vue'
+import AuthViewLayout from '@/components/layouts/auth/index.vue'
 import LoginView from '@/pages/auth/login/index.vue'
 
 export default [
   {
     path: '/auth',
-    component: DefaultViewLayout,
+    component: AuthViewLayout,
     children: [
       {
         path: 'login',

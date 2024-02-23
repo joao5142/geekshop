@@ -29,6 +29,12 @@ interface IProps {
   quantity: number
 }
 defineProps<IProps>()
+
+type EmitTypes = {
+  increase: []
+  decrease: []
+}
+defineEmits<EmitTypes>()
 </script>
 
 <style scoped></style>

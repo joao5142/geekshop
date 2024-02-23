@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import AppButton from '@/components/ui/AppButton.vue'
 
-describe('App Button', () => {
+describe('AppButton', () => {
   it('should render correctly', () => {
     const wrapper = mount(AppButton, {
       slots: {

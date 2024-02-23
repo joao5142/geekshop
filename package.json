@@ -28,7 +28,6 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "jsbarcode": "^3.11.6",
-    "keen-slider": "^6.8.6",
     "maska": "^2.1.10",
     "prettier": "^3.0.3",
     "qrcode.vue": "^3.4.1",

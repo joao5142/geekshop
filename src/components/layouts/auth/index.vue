@@ -1,9 +1,14 @@
 <template>
-  <v-app>
-    <router-view></router-view>
-  </v-app>
+  <v-layout>
+    <v-main>
+      <slot></slot>
+    </v-main>
+    <loading-component />
+  </v-layout>
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+import LoadingComponent from '../components/Loading.vue'
+</script>
 
 <style scoped lang="scss"></style>

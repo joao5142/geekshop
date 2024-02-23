@@ -1,6 +1,5 @@
 import '@/styles/main.scss'
 import 'vue3-toastify/dist/index.css'
-import 'keen-slider/keen-slider.min.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
